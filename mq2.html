@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MoodMate – Daily Feedback</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #eef3f8;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+    .question {
+      margin-bottom: 15px;
+    }
+    .feedback {
+      font-style: italic;
+      color: #7f8c8d;
+      margin-top: 5px;
+    }
+    .submit-btn {
+      background: #1abc9c;
+      color: white;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      margin-top: 20px;
+      cursor: pointer;
+      display: block;
+      width: 100%;
+    }
+    #finalResult {
+      margin-top: 30px;
+      font-size: 18px;
+      text-align: center;
+      color: #34495e;
+    }
+  </style>
+</head>
+<body>
+  <h2>🌤️ MoodMate – How Are You Really Feeling?</h2>
+  <form id="moodForm">
+
+    <div class="question">
+      <label>1. How is your overall mood?</label>
+      <select name="mood">
+        <option value="Happy">😊 Happy</option>
+        <option value="Sad">😢 Sad</option>
+        <option value="Anxious">😰 Anxious</option>
+        <option value="Angry">😠 Angry</option>
+        <option value="Flat">😐 Flat</option>
+      </select>
+      <div class="feedback" id="fb1"></div>
+    </div>
+
+    <div class="question">
+      <label>2. Did you sleep well last night?</label>
+      <select name="sleep">
+        <option value="Yes">✔️ Yes</option>
+        <option value="No">❌ No</option>
+        <option value="Interrupted">😴 Interrupted</option>
+      </select>
+      <div class="feedback" id="fb2"></div>
+    </div>
+
+    <div class="question">
+      <label>3. How stressed are you today?</label>
+      <select name="stress">
+        <option value="Low">🧘 Low</option>
+        <option value="Moderate">😐 Moderate</option>
+        <option value="High">😣 High</option>
+      </select>
+      <div class="feedback" id="fb3"></div>
+    </div>
+
+    <div class="question">
+      <label>4. How much energy do you feel?</label>
+      <select name="energy">
+        <option value="High">⚡ High</option>
+        <option value="Average">🔋 Average</option>
+        <option value="Low">🪫 Low</option>
+      </select>
+      <div class="feedback" id="fb4"></div>
+    </div>
+
+    <div class="question">
+      <label>5. Did you eat something healthy today?</label>
+      <select name="food">
+        <option value="Yes">🥗 Yes</option>
+        <option value="No">🍔 No</option>
+        <option value="Planning">📋 Planning to</option>
+      </select>
+      <div class="feedback" id="fb5"></div>
+    </div>
+
+    <div class="question">
+      <label>6. Have you been physically active?</label>
+      <select name="activity">
+        <option value="Yes">🏃‍♀️ Yes</option>
+        <option value="No">🚶‍♂️ No</option>
+        <option value="Later">⌛ Later today</option>
+      </select>
+      <div class="feedback" id="fb6"></div>
+    </div>
+
+    <div class="question">
+      <label>7. Did you talk to a friend or loved one?</label>
+      <select name="social">
+        <option value="Yes">❤️ Yes</option>
+        <option value="No">🚫 No</option>
+        <option value="NotYet">🔜 Not yet</option>
+      </select>
+      <div class="feedback" id="fb7"></div>
+    </div>
+
+    <div class="question">
+      <label>8. Are you doing something you enjoy today?</label>
+      <select name="joy">
+        <option value="Yes">🎨 Yes</option>
+        <option value="No">📄 No</option>
+        <option value="NotSure">🤔 Not sure</option>
+      </select>
+      <div class="feedback" id="fb8"></div>
+    </div>
+
+    <button type="submit" class="submit-btn">Get Feedback</button>
+  </form>
+
+  <div id="finalResult"></div>
+
+  <script>
+    const feedbackMap = {
+      mood: {
+        Happy: "Wonderful! Keep doing whatever fuels that smile.",
+        Sad: "It's okay to feel sad. Be gentle with yourself today.",
+        Anxious: "Take a deep breath—you’ve got this.",
+        Angry: "Try finding a quiet moment or vent creatively.",
+        Flat: "Feeling flat? A change of pace might lift your energy."
+      },
+      sleep: {
+        Yes: "Great sleep sets the tone for a strong day!",
+        No: "A rough night? Take things slow today if you can.",
+        Interrupted: "Interrupted sleep can affect your clarity—try to rest later."
+      },
+      stress: {
+        Low: "Zen mode engaged. Enjoy the calm!",
+        Moderate: "You're managing stress. Stay balanced.",
+        High: "Stress is tough. A walk or journaling may help."
+      },
+      energy: {
+        High: "You're charged up! Channel it wisely.",
+        Average: "Steady energy—perfect for productivity.",
+        Low: "Low energy? No shame in taking breaks."
+      },
+      food: {
+        Yes: "Smart eating choices! Your body thanks you.",
+        No: "No worries
